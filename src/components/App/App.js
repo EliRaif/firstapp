@@ -11,7 +11,7 @@ function App() {
     <div className="App">
 
       <header className="App-header">
-
+        <img src={logo} className="App-logo" alt="logo" />
 
         {/* <Button  text="Dont Me" className="btn-light"/> */}
 
