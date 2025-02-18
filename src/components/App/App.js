@@ -1,33 +1,44 @@
 import logo from '../../logo.svg';
 import './App.css';
-import Button from '../Button/Button';
-import TextInput from '../TextInput/TextInput';
-import Forms from '../Forms/Forms';
-import UserCard from '../UserCard/UserCard';
-import ItemList from '../ItemList/ItemList';
+import Button from '../no name/Button/Button';
+import TextInput from '../no name/TextInput/TextInput';
+import Forms from '../no name/Forms/Forms';
+import UserCard from '../no name/UserCard/UserCard';
+import ItemList from '../no name/ItemList/ItemList';
+import Product from '../no name/Product/Product';
+import grandson from '../Hierarchy of children/Grandson/Grandson';
+import React ,{useState}from "react";
+import Child from '../Hierarchy of children/Child/Child';
+import Counter1 from '../Counter1/Counter1';
 
-function App() {
+function App()
+ {
+
+  const [count, setCount] = useState(0); 
+
   return (
     <div className="App">
 
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
 
-        {/* <Button  text="Dont Me" className="btn-light"/> */}
 
-        {/* <TextInput/> */}
 
-        {/* <Forms text="Dont Me" className="btn-light"/> */}
 
-        {/* <UserCard id="123456789" name="rivky" age="22" />
-        <UserCard id="555888777" name="mendi" age="18" />
-        <UserCard id="111222333" name="simcha" age="70" />
-        <UserCard id="444555666" name="avi" age="30" />
-        <UserCard id="444555666" name="avi" age="30" /> */}
+<button onClick={() => setCount(count + 1)}>App Increment</button>
+<p> App count = {count}</p> 
 
-       <ItemList items={["bread", "cheese", "cucumber"]} />
+<Child count={count} setCount={setCount}/>
+
+
+
+
+
+
 
       </header>
+
+      
+        
     </div>
   );
 }
