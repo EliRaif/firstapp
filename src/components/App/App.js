@@ -7,38 +7,31 @@ import UserCard from '../no name/UserCard/UserCard';
 import ItemList from '../no name/ItemList/ItemList';
 import Product from '../no name/Product/Product';
 import grandson from '../Hierarchy of children/Grandson/Grandson';
-import React ,{useState}from "react";
+import React, { useState, useEffect } from "react";
 import Child from '../Hierarchy of children/Child/Child';
 import Counter1 from '../Counter1/Counter1';
+import Header from '../Revenue Management/Header/Header';
+import TransactionForms from '../Revenue Management/TransactionForms/TransactionForms';
+import TransactionList from '../Revenue Management/TransactionList/TransactionList';
 
-function App()
- {
+function App() {
 
-  const [count, setCount] = useState(0); 
+  const [income, setIncome] = useState(0);
+  const [expenditure, setExpenditure] = useState(0);
+  const [balance, setBalance] = useState(0);
+
+  useEffect(() => {
+    setBalance(income - expenditure);
+  }, [income, expenditure]);
+
 
   return (
-    <div className="App">
+    <div >
 
-      <header className="App-header">
+      <Header income={income} expenditure={expenditure} balance={balance} />
 
+      <TransactionForms income={income} setIncome={setIncome} expenditure={expenditure} setExpenditure={setExpenditure} />
 
-
-
-<button onClick={() => setCount(count + 1)}>App Increment</button>
-<p> App count = {count}</p> 
-
-<Child count={count} setCount={setCount}/>
-
-
-
-
-
-
-
-      </header>
-
-      
-        
     </div>
   );
 }
